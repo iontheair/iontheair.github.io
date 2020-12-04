@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GPA</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">aum University</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="CSProgram.html">CS program</a>
+                <a href="GPA.html">GPA</a>
+                <a href="TTA.html">Teaching Assistant</a>
+            </nav>
+        </div>
+    </header>
+    <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+    <!-- Form -->
+    <section>
+        <div class="inner">
+            <h2 style="text-transform:none;margin-top: 2em">GPA calculate</h2>
+            <form method="post" action="#">
+                <div id="itemGroup" class="row uniform 50%">
+                        <div class="6u">
+                            <input type="text" class="demo-hours"  value="" placeholder="credit hours" />
+                        </div>
+                        <div class="6u$">
+                            <input type="text" class="demo-grade"  value="" placeholder="letter grade" />
+                        </div>
+                        <div class="6u">
+                            <input type="text" class="demo-hours"  value="" placeholder="credit hours" />
+                        </div>
+                        <div class="6u$">
+                            <input type="text" class="demo-grade"  value="" placeholder="letter grade" />
+                        </div>
+                </div>
+                    <div style="margin-top: 2em" class="12u$">
+                        <textarea name="demo-GPA" id="demo-GPA" placeholder="GPA is..." rows="1"></textarea>
+                    </div>
+
+                    <div style="margin-top: 2em" class="12u$">
+                        <ul class="actions">
+                            <li><input id="add" onclick="addItem()" type="button" value="add" class="special" /></li>
+                            <li><input type="button" onclick="calculateGPA()" value="calculate" class="special" /></li>
+                            <li><input onclick="removeItem()" type="reset" value="Reset" /></li>
+                        </ul>
+                    </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+<script type="text/javascript">
+    function addItem() {
+        document.getElementById("itemGroup").insertAdjacentHTML("beforeend", '<div class="6u ">\n' +
+            '                            <input type="text" class="demo-hours"  value="" placeholder="credit hours" />\n' +
+            '                        </div>\n' +
+            '                        <div class="6u$">\n' +
+            '                            <input type="text" class="demo-grade"  value="" placeholder="letter grade" />\n' +
+            '                        </div>')
+    }
+
+    function removeItem() {
+        document.getElementById("itemGroup").innerHTML = '                        <div class="6u ">\n' +
+            '                            <input type="text" class="demo-hours"  value="" placeholder="credit hours" />\n' +
+            '                        </div>\n' +
+            '                        <div class="6u$">\n' +
+            '                            <input type="text" class="demo-grade"  value="" placeholder="letter grade" />\n' +
+            '                        </div>\n' +
+            '                        <div class="6u">\n' +
+            '                            <input type="text" class="demo-hours"  value="" placeholder="credit hours" />\n' +
+            '                        </div>\n' +
+            '                        <div class="6u$">\n' +
+            '                            <input type="text" class="demo-grade"  value="" placeholder="letter grade" />\n' +
+            '                        </div>'
+    }
+
+    function calculateGPA() {
+        let result = 0
+        let middleNumber = 0
+        let gradeMap = {
+            'A':4,
+            'B':3,
+            'C':2,
+            'D':1,
+            'F':0
+        }
+        // alert(document.getElementsByClassName('demo-grade')[0].value)
+        let itemGroupGrade = document.getElementsByClassName('demo-grade')
+        let itemGroupHours = document.getElementsByClassName('demo-hours')
+        // document.getElementsByClassName('demo-grade').forEach(element => console.log(element.value))
+        for(let key in itemGroupGrade){
+            if(key < 50) {
+                console.log(key)
+                result += itemGroupHours[key].value*gradeMap[itemGroupGrade[key].value]
+                middleNumber += itemGroupHours[key].value*1
+            }
+
+        }
+        result /= middleNumber
+        document.getElementById('demo-GPA').value = 'GPA is : ' + result
+
+    }
+</script>
+</body>
+</html>

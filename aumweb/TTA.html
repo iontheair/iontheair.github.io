@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Teaching Assistant Application</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">aum University</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="CSProgram.html">CS program</a>
+                <a href="GPA.html">GPA</a>
+                <a href="TTA.html">Teaching Assistant</a>
+            </nav>
+        </div>
+    </header>
+    <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+    <!-- Form -->
+    <section>
+        <div class="inner">
+            <h2 style="text-transform:none;margin-top: 2em">Teaching Assistant Application</h2>
+            <form method="post" action="#">
+                <div class="row uniform 50%">
+                    <div class="6u">
+                        <input type="text" name="demo-name" id="demo-name" value="" placeholder="Full Name" />
+                    </div>
+                    <div class="6u$">
+                        <input type="text" name="demo-id" id="demo-id" value="" placeholder="ID" />
+                    </div>
+                    <div class="6u$">
+                        <input style="display: inline-block" type="text" name="demo-gpa" id="demo-gpa" value="" placeholder="GPA" />
+                       
+                    </div>
+                    <div class="4u">
+                        <input type="radio" id="priority-low" name="priority" checked>
+                        <label for="priority-low">male</label>
+                    </div>
+                    <div class="4u">
+                        <input type="radio" id="priority-normal" name="priority">
+                        <label for="priority-normal">female</label>
+                    </div>
+                    <div class="12u$">
+                        <textarea name="demo-message" id="demo-message" placeholder="Enter your comments" rows="6"></textarea>
+                    </div>
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="special" /></li>
+                            <li><input type="reset" value="Reset" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
